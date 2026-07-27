@@ -1,384 +1,94 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>가양 클럽 룩북: 정보 | 가양 클럽 룩북</title>
-    <meta name="description" content="가양 클럽 룩북 정보 페이지: 2025년 스트릿 브루탈리즘 데이터 기반 분석, UGC 리뷰, 스타일 인사이트. 전문가 큐레이션, 클럽 문화의 정수. 가양 지역 클럽 마니아를 위한 익스클루시브 룩북.">
-    <meta name="keywords" content="가양 클럽 룩북, 가양 클럽, 스트릿 브루탈리즘, 클럽 스타일, 가양 나이트라이프, 클럽 패션, 서울 클럽 룩북, 브루탈리즘 패션">
-    <meta name="author" content="T3B06 PBN Agency">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://t3b06-gy-club-look-1.vercel.app/info">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://t3b06-gy-club-look-1.vercel.app/info">
-    <meta property="og:title" content="가양 클럽 룩북: 정보 | 전문가 인사이트">
-    <meta property="og:description" content="스트릿 브루탈리즘 기반 클럽 룩북 분석. 2025년 가양 클럽씬 데이터와 UGC 리뷰 인사이트.">
-    <meta property="og:image" content="https://t3b06-gy-club-look-1.vercel.app/assets/info-og.jpg">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "가양 클럽 룩북",
-        "description": "스트릿 브루탈리즘 기반 클럽 룩북 데이터 분석 및 큐레이션",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "서울",
-            "addressRegion": "강서구",
-            "addressCountry": "KR"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 37.5615,
-            "longitude": 126.8255
-        },
-        "telephone": "+82-2-1234-5678",
-        "url": "https://t3b06-gy-club-look-1.vercel.app/",
-        "areaServed": "가양동",
-        "foundingDate": "2024-01-01",
-        "knowsAbout": ["클럽 룩북", "스트릿 브루탈리즘", "나이트라이프 패션"]
-    }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #131313;
-            --bg-card: #1a1a1a;
-            --text-primary: #e8e8e8;
-            --text-secondary: #a0a0a0;
-            --accent: #ff3b3f;
-            --accent-dark: #cc2f32;
-            --border: #2a2a2a;
-            --shadow: rgba(0, 0, 0, 0.6);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* header / nav */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 64px;
-        }
-
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--accent);
-            text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .nav {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav a:hover,
-        .nav a.active {
-            color: var(--text-primary);
-        }
-
-        .nav a.active {
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 2px;
-        }
-
-        /* Hamburger menu */
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0;
-        }
-
-        .hamburger-menu span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: var(--text-primary);
-            margin: 4px 0;
-            transition: 0.3s;
-        }
-
-        .hamburger-menu.open span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger-menu.open span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger-menu.open span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        @media (max-width: 768px) {
-            .hamburger-menu {
-                display: flex;
-            }
-
-            .nav {
-                display: none;
-                flex-direction: column;
-                background: var(--bg-secondary);
-                position: absolute;
-                top: 64px;
-                left: 0;
-                width: 100%;
-                padding: 20px;
-                gap: 16px;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav.open {
-                display: flex;
-            }
-        }
-
-        /* Hero section */
-        .hero-section {
-            padding: 140px 0 80px;
-            text-align: center;
-            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero-section h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.2rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-section .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 720px;
-            margin: 0 auto 32px;
-        }
-
-        .hero-section .metadata {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-
-        .metadata span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* Section */
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-header {
-            margin-bottom: 48px;
-            text-align: center;
-        }
-
-        .section-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            max-width: 640px;
-            margin: 0 auto;
-        }
-
-        /* Card grid */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 24px;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--text-primary);
-        }
-
-        .card p {
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-        }
-
-        .card .stat {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-            line-height: 1.2;
-        }
-
-        .card .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* FAQ */
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px 32px;
-            transition: border-color 0.2s;
-        }
-
-        .faq-item:hover {
-            border-color: var(--accent);
-        }
-
-        .faq-item h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--text-primary);
-        }
-
-        .faq-item p {
-            color: var(--text-secondary);
-        }
-
-        /* Footer */
-        .footer {
-            border-top: 1px solid var(--border);
-            padding: 32px 0;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .footer a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            margin: 0 12px;
-            transition: color 0.2s;
-        }
-
-        .footer a:hover {
-            color: var(--text-primary);
-        }
-
-        @media (max-width: 768px) {
-            .hero-section h1 {
-                font-size: 2rem;
-            }
-
-            .hero-section .metadata {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .faq-item {
-                padding: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>가양 클럽 정보 – 세부 가이드</title>
+  <meta name="description" content="가양 클럽을 처음 찾는 방문자와 기존 이용자를 위한 상세 정보와 체크리스트, 상황별 적합성 안내를 제공합니다.">
+  <meta name="keywords" content="가양 클럽, 클럽 정보, 가양 클럽 체크리스트, 클럽 이용 가이드">
+  <link rel="canonical" href="https://gayang-club-choice.program-school.online/about.html">
+  <meta property="og:title" content="가양 클럽 정보 – 상세 가이드">
+  <meta property="og:description" content="가양 클럽을 처음 찾는 방문자와 기존 이용자를 위한 상세 선택 기준과 체크리스트를 확인하세요.">
+  <meta property="og:url" content="https://gayang-club-choice.program-school.online/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://gayang-club-choice.program-school.online/assets/og-image.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container header-inner">
-            <a href="/" class="logo">GY<br>CLUB<br>LOOK</a>
-            <button class="hamburger-menu" id="hamburger" aria-label="메뉴 열기">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav>
-                <ul class="nav" id="nav">
-                    <li><a href="/">홈</a></li>
-                    <li><a href="/lookbook
+  <header class="header">
+    <nav class="nav">
+      <ul>
+        <li><a href="/"><span>홈</span></a></li>
+        <li><a href="/lookbook"><span>클럽 룩북</span></a></li>
+        <li><a href="/info" class="active"><span>정보</span></a></li>
+        <li><a href="/contact"><span>문의</span></a></li>
+      </ul>
+      <div class="hamburger-menu"></div>
+    </nav>
+  </header>
+
+  <main class="k-main-oesi">
+    <section class="x-box-ikwv">
+      <h1>가양 클럽, 왜 여기인가?</h1>
+      <p>가양은 도심과는 달리 조용하면서도 접근성이 뛰어난 입지에 위치해 있습니다. 여러 대중교통 라인이 교차하는 지점에 있어 친구와 모임을 잡거나, 직장인들이 퇴근 후 쉽게 찾아갈 수 있는 환경이 조성돼 있죠. 특히 야외 테라스와 실내 라운지를 동시에 갖춘 클럽들이 많아 날씨에 구애받지 않고 즐길 수 있습니다.</p>
+      <p>게다가 가양은 최근 5년간 문화·예술 인프라가 급성장하면서 트렌디한 음악과 독특한 인테리어를 자랑하는 공간들이 늘어나고 있습니다. 밤새도록 이어지는 파티 문화와 함께, 낮에도 커피와 칵테일을 즐길 수 있는 복합 문화 공간이 늘어나고 있어, 다양한 시간대와 목적에 맞게 선택할 수 있습니다.</p>
+    </section>
+
+    <section class="x-box-ikwv">
+      <h2>클럽 유형별 특성</h2>
+      <p>대형 클럽은 대규모 이벤트와 유명 DJ를 초청한 파티가 자주 열리며, 넓은 무대와 최첨단 사운드 시스템을 갖추고 있습니다. 이곳은 주로 20대 후반~30대 초반이 선호하며, 주말 밤에 활기를 띱니다.</p>
+      <p>소규모 라운지형 클럽은 아늑한 분위기와 깊이 있는 음악 큐레이션이 특징입니다. 친밀한 대화와 네트워킹을 위해 설계된 공간으로, 비즈니스 미팅이나 친목 모임에 적합합니다. 입장 인원 제한이 있어 대기 시간이 짧고, 서비스 품질이 높다는 평을 많이 듣습니다.</p>
+      <p>하이브리드 클럽은 바와 댄스 플로어를 동시에 운영해, 낮에는 칵테일 바, 밤에는 클럽으로 변신합니다. 워크‑라이프 밸런스를 중시하는 직장인들에게 인기가 높으며, 다양한 프로그램을 제공해 방문 목적에 따라 자유롭게 선택할 수 있습니다.</p>
+    </section>
+
+    <section class="x-box-ikwv">
+      <h2>이용 전 체크리스트</h2>
+      <ul class="t-list-lw1a">
+        <li>예약 여부: 인기 클럽은 사전 예약이 필수입니다. 특히 주말과 특별 이벤트 시에는 최소 48시간 전 예약을 권장합니다.</li>
+        <li>드레스 코드: 클럽마다 요구하는 복장 수준이 다릅니다. 고급 라운지는 정장 또는 세미 포멀, 힙합 바 스타일 클럽은 스트리트 패션을 허용합니다.</li>
+        <li>입장료와 음료 패키지: 입장료에 포함되는 음료 수량을 확인하고, 추가 주문 시 가격 변동을 미리 파악해 예산을 조절하세요.</li>
+        <li>연령 제한: 대부분 20세 이상 입장이지만, 특정 파티는 25세 이상을 요구하기도 합니다. 신분증을 반드시 지참하세요.</li>
+        <li>주차·교통편: 가양 주변 주차장은 제한적이므로 대중교통 이용을 권장합니다. 가까운 지하철역과 버스 정류장 정보를 미리 확인해 두세요.</li>
+      </ul>
+    </section>
+
+    <section class="x-box-ikwv">
+      <h2>상황별 추천 클럽</h2>
+      <div class="n-side-5j5x">
+        <h3>친구와 파티</h3>
+        <p>대형 클럽 “라비타”는 최신 EDM과 화려한 조명을 자랑합니다. 입장 전 라인 대기 시간이 길지만, 프리미엄 라운지 이용권을 구매하면 전용 입구와 VIP 존을 이용할 수 있어 효율적인 파티를 즐길 수 있습니다.</p>
+        <p>음악에 집중하고 싶다면 “노디스트”를 추천합니다. 이곳은 하우스와 테크노 중심의 음악을 제공하며, DJ와 직접 소통할 수 있는 작은 무대가 있어 음악 팬에게 큰 호응을 얻고 있습니다.</p>
+      </div>
+      <div class="n-side-5j5x">
+        <h3>비즈니스 네트워킹</h3>
+        <p>“루프 라운지”는 세련된 인테리어와 조용한 분위기가 특징이며, 와인 리스트와 고급 안주가 제공됩니다. 낮 시간대에 진행되는 ‘칵테일 워크샵’은 비즈니스 파트너와 자연스럽게 대화를 이어갈 수 있는 좋은 기회를 제공합니다.</p>
+        <p>“시그너스 클럽”은 프라이빗 룸을 보유하고 있어 소규모 회의나 프레젠테이션을 진행하기에 이상적입니다. 방음 설비와 고속 와이파이, 프리미엄 음향 시스템이 구비돼 있어 업무와 레저를 동시에 만족시킵니다.</p>
+      </div>
+      <div class="n-side-5j5x">
+        <h3>데이트 코스</h3>
+        <p>“에클레어”는 로맨틱한 조명과 포근한 소파가 배치된 라운지 바입니다. 칵테일 메뉴가 다양하고, 스페셜 디저트 플레이트가 있어 로맨틱한 분위기를 연출합니다.</p>
+        <p>“블루문”은 테라스가 특징인 클럽으로, 도심 야경을 바라보며 와인 한 잔을 즐길 수 있습니다. 저녁 무렵에 예약하면 별빛 아래에서 특별한 추억을 만들 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="x-box-ikwv">
+      <h2>자주 묻는 질문 (FAQ)</h2>
+      <div class="q-wrap-xeds">
+        <h3>Q1. 입장 전 신분증은 꼭 필요하나요?</h3>
+        <p>네, 모든 클럽은 20세 이상 입장을 보장하기 위해 신분증 제시를 요구합니다. 외국인 방문객은 여권을, 현지 주민은 주민등록증 또는 운전면허증을 지참해 주세요.</p>
+      </div>
+      <div class="q-wrap-xeds">
+        <h3>Q2. 주류 이용 제한이 있나요?</h3>
+        <p>대부분 클럽은 음료 주문 시 나이 확인을 다시 진행합니다. 일부 라운지는 알코올프리 옵션을 제공하니, 음주를 원치 않을 경우 미리 문의하면 좋습니다.</p>
+      </div>
+      <div class="q-wrap-xeds">
+        <h3>Q3. 장애인 이용 시설은 어떻게 되어 있나요?</h3>
+        <p>가양의 주요 클럽들은 휠체어 접근 가능 설계와 별도의 장애인 화장실을 구비하고 있습니다. 입구에 휠체어 전용 출입구가 있으며, 직원에게 미리 알려주면 추가 지원을 받을 수 있습니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 가양 클럽 룩북. 모든 권리 보유.</p>
+  </footer>
 </body>
 </html>

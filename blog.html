@@ -1,259 +1,92 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>블로그 | 가양 클럽 룩북</title>
-    <meta name="description" content="가양 클럽 룩북 블로그: 2025년 스트릿 브루탈리즘 트렌드 심층 분석, 데이터 기반 스타일 인사이트, UGC 리뷰 종합. 가양 클럽 문화의 정수를 큐레이션합니다.">
-    <meta name="keywords" content="가양 클럽 룩북 블로그, 가양 클럽 스타일, 스트릿 브루탈리즘 트렌드, 가양 나이트라이프, 클럽 패션 분석, 2025 스트릿 패션, 서울 클럽 룩북">
-    <meta name="author" content="T3B06 PBN Agency">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://t3b06-gy-club-look-1.vercel.app/blog">
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://t3b06-gy-club-look-1.vercel.app/blog">
-    <meta property="og:title" content="블로그 | 가양 클럽 룩북">
-    <meta property="og:description" content="가양 클럽 룩북 블로그: 2025년 스트릿 브루탈리즘 트렌드 심층 분석, 데이터 기반 스타일 인사이트, UGC 리뷰 종합.">
-    <meta property="og:image" content="https://t3b06-gy-club-look-1.vercel.app/assets/og-blog.jpg">
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://t3b06-gy-club-look-1.vercel.app/blog">
-    <meta property="twitter:title" content="블로그 | 가양 클럽 룩북">
-    <meta property="twitter:description" content="가양 클럽 룩북 블로그: 2025년 스트릿 브루탈리즘 트렌드 심층 분석, 데이터 기반 스타일 인사이트, UGC 리뷰 종합.">
-    <style>
-        /* CSS 리셋 및 기본 변수 – 이전 페이지와 동일한 디자인 시스템 */
-        :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #141414;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --accent: #d4af37;
-            --accent-hover: #c49a2e;
-            --border-color: #2a2a2a;
-            --font-heading: 'Inter', 'Noto Sans KR', sans-serif;
-            --font-body: 'Inter', 'Noto Sans KR', sans-serif;
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
-            --max-width: 1200px;
-            --header-height: 70px;
-            --shadow-card: 0 4px 20px rgba(0,0,0,0.6);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-        a { color: var(--accent); text-decoration: none; transition: color 0.3s; }
-        a:hover { color: var(--accent-hover); }
-        img { max-width: 100%; display: block; }
-        /* 헤더 및 네비게이션 */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: var(--header-height);
-            background: rgba(10,10,10,0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 var(--spacing-md);
-        }
-        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--accent); }
-        .logo span { color: var(--text-primary); }
-        nav { display: flex; align-items: center; gap: var(--spacing-md); }
-        nav a { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); font-weight: 500; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
-        nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
-        /* 햄버거 메뉴 */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0.5rem;
-        }
-        .hamburger span {
-            display: block;
-            width: 26px;
-            height: 2px;
-            background: var(--text-primary);
-            margin: 4px 0;
-            transition: all 0.3s;
-        }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-        @media (max-width: 768px) {
-            .hamburger { display: flex; }
-            nav {
-                position: fixed;
-                top: var(--header-height);
-                left: 0;
-                width: 100%;
-                background: var(--bg-secondary);
-                flex-direction: column;
-                padding: var(--spacing-md);
-                gap: var(--spacing-sm);
-                border-bottom: 1px solid var(--border-color);
-                transform: translateY(-100%);
-                opacity: 0;
-                pointer-events: none;
-                transition: all 0.4s;
-            }
-            nav.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
-        }
-        /* 메인 콘텐츠 */
-        main {
-            padding-top: calc(var(--header-height) + var(--spacing-md));
-            padding-bottom: var(--spacing-lg);
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding-left: var(--spacing-md);
-            padding-right: var(--spacing-md);
-        }
-        /* 블로그 글 */
-        .blog-article {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: var(--spacing-lg);
-            box-shadow: var(--shadow-card);
-            margin-bottom: var(--spacing-lg);
-        }
-        .blog-article h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: var(--spacing-sm);
-            color: var(--accent);
-        }
-        .blog-article .meta {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-md);
-            display: flex;
-            gap: var(--spacing-sm);
-            flex-wrap: wrap;
-        }
-        .blog-article .meta span { background: var(--bg-primary); padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid var(--border-color); }
-        .blog-article h2 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-top: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
-            color: var(--accent);
-            border-left: 4px solid var(--accent);
-            padding-left: var(--spacing-sm);
-        }
-        .blog-article p {
-            margin-bottom: var(--spacing-sm);
-            font-size: 1rem;
-            color: var(--text-primary);
-            text-align: justify;
-        }
-        .blog-article ul, .blog-article ol {
-            margin: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-md);
-            color: var(--text-secondary);
-        }
-        .blog-article li { margin-bottom: 0.5rem; }
-        .blog-article strong { color: var(--accent); }
-        .blog-article blockquote {
-            border-left: 4px solid var(--accent);
-            padding: var(--spacing-sm) var(--spacing-md);
-            margin: var(--spacing-md) 0;
-            background: rgba(212, 175, 55, 0.05);
-            font-style: italic;
-            color: var(--text-secondary);
-        }
-        .blog-article .data-box {
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: var(--spacing-md);
-            margin: var(--spacing-md) 0;
-        }
-        .blog-article .data-box h3 {
-            color: var(--accent);
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.2rem;
-        }
-        .blog-article .data-box table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: var(--spacing-sm);
-        }
-        .blog-article .data-box th, .blog-article .data-box td {
-            padding: 0.5rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .blog-article .data-box th { color: var(--accent); font-weight: 600; }
-        .blog-article .data-box td { color: var(--text-secondary); }
-        /* 푸터 */
-        footer {
-            text-align: center;
-            padding: var(--spacing-md);
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        footer a { color: var(--accent); }
-        /* 반응형 */
-        @media (max-width: 768px) {
-            .blog-article { padding: var(--spacing-md); }
-            .blog-article h1 { font-size: 1.8rem; }
-            .blog-article h2 { font-size: 1.3rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>가양 클럽 룩북 — 블로그</title>
+  <meta name="description" content="가양 클럽을 방문하기 전 고려해야 할 선택 기준, 정산 방식, 연장·조기 종료 처리, 재방문 기록 등 실용적인 정보를 전문적으로 정리했습니다.">
+  <meta name="keywords" content="가양 클럽, 룩북, 클럽 선택, 이용 조건, 사후 관리">
+  <link rel="canonical" href="https://gayang-club-choice.program-school.online/blog.html">
+  <meta property="og:title" content="가양 클럽 룩북 — 조건별 선택 가이드와 사후 관리">
+  <meta property="og:description" content="가양 클럽을 방문하기 전 고려해야 할 선택 기준, 정산 방식, 연장·조기 종료 처리, 재방문 기록 등 실용적인 정보를 전문적으로 정리했습니다.">
+  <meta property="og:url" content="https://gayang-club-choice.program-school.online/blog.html">
+  <meta property="og:type" content="website">
+  <!-- CSS는 기존 디자인 시스템을 그대로 사용합니다 -->
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+  <!-- 공통 네비게이션 -->
+  <nav class="nav-present">
+    <ul>
+      <li><a href="/index.html">홈</a></li>
+      <li><a href="/about.html">소개</a></li>
+      <li><a href="/clubs.html">클럽 안내</a></li>
+      <li><a href="/blog.html">블로그</a></li>
+      <li><a href="/contact.html">문의</a></li>
+    </ul>
+  </nav>
 
-<header>
-    <div class="logo">가양<span>룩북</span></div>
-    <button class="hamburger" aria-label="메뉴 열기" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-    </button>
-    <nav id="mainNav">
-        <a href="/">홈</a>
-        <a href="/lookbook">룩북</a>
-        <a href="/blog" class="active">블로그</a>
-        <a href="/about">소개</a>
-        <a href="/contact">문의</a>
-    </nav>
-</header>
+  <!-- 히어로 섹션 -->
+  <section class="k-hero">
+    <h1>가양 클럽 룩북 – 전문적인 선택 가이드</h1>
+    <p>가양 지역 내 클럽을 평가하고 이용하기 위한 핵심 지표와 실제 운영 방식을 심도 있게 분석합니다.</p>
+  </section>
 
-<main>
-    <article class="blog-article">
-        <h1>2025 가양 클럽 룩북: 스트릿 브루탈리즘 트렌드 데이터 분석</h1>
-        <div class="meta">
-            <span>2025.04.07</span>
-            <span>카테고리: 트렌드 분석</span>
-            <span>조회 2,847</span>
-        </div>
+  <!-- 본문 시작 -->
+  <main class="r-btn-czmz">
 
-        <p>가양 지역 클럽 문화는 2024년 하반기부터 급격한 스타일 변곡점을 맞이했다. 기존의 힙스터-스트릿 믹스에서 벗어나, 건축적 구조감을 패션에 적용한 <strong>스트릿 브루탈리즘(Street Brutalism)</strong>이 주류로 자리잡았다. 본 블로그는 가양 소재 5개 클럽(베이스, 언더그라운드, 콘크리트, 벙커, 모노리스)의 출입 데이터와 SNS UGC 12,000건을 분석하여 2025년 상반기 핵심 트렌드를 도출했다.</p>
+    <!-- 1. 선택 기준 -->
+    <article class="n-side-vvkt">
+      <h2>클럽 선택 시 고려해야 할 핵심 기준</h2>
+      <p>첫 번째 기준은 시설의 안전성입니다. 화재 대비 설비, 비상 대피 경로, 그리고 음향·조명 시스템의 전기 안전 인증 여부를 반드시 확인해야 합니다. 이러한 요소는 고객의 물리적 안전뿐 아니라 서비스 전반의 신뢰성을 보장합니다.</p>
+      <p>두 번째 기준은 제공되는 서비스 범위와 품질입니다. 기본 입장료 외에 제공되는 음료 패키지, 전용 라운지 이용 여부, 그리고 사전 예약 시스템의 편리성을 비교하십시오. 특히, 멤버십 제도와 포인트 적립 방식이 장기 이용 시 비용 효율에 큰 영향을 미칩니다.</p>
+    </article>
 
-        <h2>데이터로 본 스트릿 브루탈리즘의 부상</h2>
-        <p>2025년 1분기 가양 클럽 방문자 3,500명을 대상으로 한 스타일 설문 및 이미지 분석 결과, 응답자의 43%가 '브루탈리즘 감성'을 주력 스타일로 채택했다. 이는 전년 동기 대비 18%p 상승한 수치다. 특히 20대 후반~30대 초반 남성 비율이 67%로 가장 높았으나, 여성 비율도 전년 대비 2.3배 증가하며 성별 격차가 줄어드는 추세다.</p>
+    <!-- 2. 정산 방식 -->
+    <article class="n-side-vvkt">
+      <h2>정산 방식 및 비용 구조 분석</h2>
+      <p>대부분의 가양 클럽은 ‘시간당 요금 + 음료 사용료’ 형태의 복합 요금제를 채택하고 있습니다. 시간당 기본 요금은 피크 타임과 비피크 타임에 따라 차등 적용되며, 이는 고객 흐름 예측에 기반한 가격 정책입니다.</p>
+      <p>추가적으로, 일일 한도 초과 시 적용되는 ‘초과 요금’과 ‘패키지 할인’ 제도를 상세히 파악하십시오. 예를 들어, 3시간 이용 시 10% 할인을 제공하는 패키지는 장시간 체류 고객에게 유리한 선택이 될 수 있습니다.</p>
+    </article>
 
-        <div class="data-box">
-            <h3>2025년 1분기 가양 클럽 스타일 지표</h3>
-            <table>
-                <thead>
-                    <tr><th>스타일 카테고리</th><th>비율 (%)</th><th>전년 대비 변화</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>스트릿 브루탈리즘</td><td>43%</td><td>+18%p</td></tr>
-                    <tr><td>미니멀 테크웨어</td><td>28%</td><td>+5%p</td></tr>
+    <!-- 3. 연장·조기 종료 정책 -->
+    <article class="n-side-vvkt">
+      <h2>연장 및 조기 종료 처리 절차</h2>
+      <p>연장은 사전 예약 시스템을 통해 자동 승인되는 경우가 많으며, 연장 요청 시 남은 이용 시간에 따라 차등 요금이 부과됩니다. 연장 요금은 기존 기본 요금의 1.2배 수준으로 책정되는 경우가 일반적입니다.</p>
+      <p>조기 종료는 고객이 사전에 통보하면 전액 환불이 가능한 경우와, 일부 수수료를 차감하고 환불하는 경우가 혼재합니다. 계약서에 명시된 ‘조기 종료 수수료 비율’을 반드시 확인하여 예상 외 비용 발생을 방지하십시오.</p>
+    </article>
+
+    <!-- 4. 재방문 기록 및 관리 -->
+    <article class="n-side-vvkt">
+      <h2>재방문 기록 관리와 혜택</h2>
+      <p>클럽은 고객별 재방문 기록을 데이터베이스에 축적하여 맞춤형 혜택을 제공합니다. 예를 들어, 5회 이상 재방문 고객에게는 무료 음료 바우처나 전용 라운지 이용 권한을 부여하는 경우가 많습니다.</p>
+      <p>이러한 기록은 멤버십 포인트와 연동되어, 일정 포인트 달성 시 프리미엄 서비스로 업그레이드할 수 있습니다. 따라서 이용 전 반드시 본인의 방문 기록과 포인트 현황을 확인하고, 전략적으로 방문 일정을 조정하는 것이 현명합니다.</p>
+    </article>
+
+    <!-- 5. 상황별 선택 시나리오 -->
+    <article class="n-side-vvkt">
+      <h2>인원·시점·목적에 따른 맞춤 시나리오</h2>
+      <p>소규모(≤5명) 그룹은 프라이빗 룸을 별도 예약하는 것이 효율적이며, 이때 최소 이용 시간이 2시간 이상인 경우 추가 할인 혜택을 받을 수 있습니다. 반면, 대규모(≥20명) 행사에서는 사전 계약을 통한 전용 공간 확보와 맞춤형 음료 패키지가 비용 절감을 돕습니다.</p>
+      <p>야간 이벤트(22시 이후)와 같은 특수 시점에 방문할 경우, 추가 보안 비용과 심야 할인 정책이 적용될 수 있으니 사전 확인이 필요합니다. 또한, 비즈니스 미팅 목적이라면 와이파이 및 회의 설비 제공 여부를 검증하는 것이 중요합니다.</p>
+    </article>
+
+    <!-- FAQ -->
+    <section class="k-foot-rbdn">
+      <h2>자주 묻는 질문</h2>
+      <h3>① 예약 취소는 언제까지 가능합니까?</h3>
+      <p>일반적으로 이용 24시간 전까지는 무료 취소가 가능하지만, 피크 타임(주말·공휴일)은 48시간 전까지 통보해야 전액 환불이 적용됩니다.</p>
+      <h3>② 멤버십 포인트는 어떻게 적립하고 사용할 수 있나요?</h3>
+      <p>입장료·음료 구매·시간 연장 등 모든 사용 내역이 포인트로 전환됩니다. 적립된 포인트는 무료 입장, 음료 교환, 혹은 라운지 이용권으로 전환 가능합니다.</p>
+      <h3>③ 비상 상황 발생 시 대처 절차는?</h3>
+      <p>모든 클럽은 비상 대피 안내판과 비상 연락망을 구비하고 있으며, 직원이 즉시 대피 안내와 응급 처치를 수행합니다. 또한, 고객은 입장 시 제공받는 안전 수칙 브로슈어를 반드시 확인해야 합니다.</p>
+    </section>
+
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="k-foot-rbdn">
+    <h1>가양 클럽 룩북</h1>
+    <p>© 2026 가양 클럽 선택 가이드. 모든 권리 보유.</p>
+  </footer>
 </body>
 </html>
