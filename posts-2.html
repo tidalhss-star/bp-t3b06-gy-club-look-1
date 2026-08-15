@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · t3b06-gy-club-look-1</title>
+  <meta name="description" content="t3b06-gy-club-look-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://gayang-club-choice.program-school.online/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ 
+ :root {
+ --bg-color: #180202;
+ --bg-card: #2d0606;
+ --accent: #ef4444;
+ --text: #e2e8f0;
+ --text-muted: #94a3b8;
+ --font-stack: 'Pretendard', sans-serif;
+ --border: rgba(255, 255, 255, 0.08);
+ --glass-bg: rgba(255, 255, 255, 0.02);
+ --glass-border: rgba(255, 255, 255, 0.05);
+ }
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body {
+ background-color: var(--bg-color);
+ color: var(--text);
+ font-family: var(--font-stack);
+ line-height: 1.8;
+ letter-spacing: -0.01em;
+ padding: 0 24px;
+ overflow-x: hidden;
+ }
+ .wrapper {
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 80px 0;
+ }
+ header {
+ border-bottom: 1px solid var(--border);
+ padding-bottom: 30px;
+ margin-bottom: 60px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+ .brand {
+ font-size: 1.6rem;
+ font-weight: 900;
+ color: #fff;
+ text-transform: uppercase;
+ letter-spacing: 0.06em;
+ text-decoration: none;
+ transition: color 0.3s, transform 0.3s;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+ .brand:hover {
+ color: var(--accent);
+ transform: translateX(2px);
+ }
+ nav {
+ display: flex;
+ gap: 28px;
+ }
+ nav a {
+ color: var(--text-muted);
+ text-decoration: none;
+ font-size: 1rem;
+ font-weight: 700;
+ transition: color 0.3s;
+ position: relative;
+ }
+ nav a::after {
+ content: '';
+ position: absolute;
+ width: 0;
+ height: 2px;
+ bottom: -6px;
+ left: 0;
+ background-color: var(--accent);
+ transition: width 0.3s;
+ }
+ nav a:hover {
+ color: #fff;
+ }
+ nav a:hover::after {
+ width: 100%;
+ }
+ main {
+ padding-bottom: 60px;
+ }
+ .badge {
+ display: inline-block;
+ padding: 6px 14px;
+ background: rgba(255, 255, 255, 0.03);
+ border: 1px solid var(--glass-border);
+ border-radius: 20px;
+ font-size: 0.8rem;
+ font-weight: 800;
+ color: var(--accent);
+ margin-bottom: 28px;
+ text-transform: uppercase;
+ letter-spacing: 0.12em;
+ }
+ h1 {
+ font-size: 3.2rem;
+ font-weight: 900;
+ color: #fff;
+ line-height: 1.2;
+ margin-bottom: 36px;
+ letter-spacing: -0.03em;
+ background: linear-gradient(to right, #ffffff 30%, var(--accent) 100%);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ }
+ .hero-container {
+ position: relative;
+ border-radius: 20px;
+ padding: 50px;
+ background: linear-gradient(145deg, var(--bg-card) 0%, rgba(255,255,255,0.01) 100%);
+ border: 1px solid var(--glass-border);
+ margin-bottom: 60px;
+ box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+ overflow: hidden;
+ }
+ .hero-container::before {
+ content: '';
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%);
+ pointer-events: none;
+ }
+ .desc-block {
+ font-size: 1.18rem;
+ color: var(--text);
+ margin-bottom: 40px;
+ font-weight: 400;
+ text-align: justify;
+ }
+ .desc-block p {
+ margin-bottom: 24px;
+ text-indent: 4px;
+ }
+ .phone-badge {
+ display: inline-flex;
+ align-items: center;
+ gap: 14px;
+ padding: 20px 40px;
+ background: linear-gradient(135deg, var(--accent) 0%, rgba(255,255,255,0.05) 200%);
+ color: #fff;
+ border-radius: 50px;
+ text-decoration: none;
+ font-weight: 900;
+ font-size: 1.3rem;
+ box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+ transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+ border: 1px solid rgba(255,255,255,0.1);
+ }
+ .phone-badge:hover {
+ transform: translateY(-3px) scale(1.02);
+ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+ border-color: rgba(255,255,255,0.25);
+ }
+ .cards-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+ gap: 28px;
+ margin-top: 60px;
+ }
+ .card {
+ background: var(--bg-card);
+ border: 1px solid var(--border);
+ padding: 36px;
+ border-radius: 16px;
+ transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+ box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+ }
+ .card:hover {
+ border-color: var(--accent);
+ transform: translateY(-5px);
+ box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+ }
+ .card h3 {
+ font-size: 1.35rem;
+ font-weight: 800;
+ color: #fff;
+ margin-bottom: 16px;
+ }
+ .card p {
+ font-size: 1rem;
+ color: var(--text-muted);
+ line-height: 1.7;
+ }
+ .review-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 20px;
+ font-size: 0.9rem;
+ font-weight: 800;
+ border-bottom: 1px dashed var(--border);
+ padding-bottom: 12px;
+ }
+ .review-stars {
+ color: #fbbf24;
+ letter-spacing: 2px;
+ }
+ .review-nick {
+ color: #fff;
+ }
+ .review-date {
+ color: var(--text-muted);
+ }
+ footer {
+ border-top: 1px solid var(--border);
+ padding-top: 50px;
+ margin-top: 100px;
+ text-align: center;
+ font-size: 0.95rem;
+ color: var(--text-muted);
+ }
+ footer a {
+ color: var(--text-muted);
+ text-decoration: none;
+ margin: 0 14px;
+ font-weight: 700;
+ transition: color 0.3s;
+ }
+ footer a:hover {
+ color: var(--accent);
+ }
+ .blog-link {
+ display: inline-block;
+ margin-top: 28px;
+ color: var(--accent);
+ text-decoration: none;
+ font-weight: 800;
+ border-bottom: 1px solid transparent;
+ transition: border-color 0.3s, transform 0.3s;
+ }
+ .blog-link:hover {
+ border-color: var(--accent);
+ transform: translateX(3px);
+ }
+ @media(max-width: 768px) {
+ body { padding: 0 16px; }
+ .wrapper { padding: 50px 0; }
+ h1 { font-size: 2.2rem; }
+ .hero-container { padding: 28px; }
+ .phone-badge { width: 100%; justify-content: center; font-size: 1.1rem; }
+ header { flex-direction: column; gap: 20px; align-items: flex-start; }
+ nav { width: 100%; justify-content: space-between; }
+ }
+ 
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · t3b06-gy-club-look-1">
+  <meta property="og:description" content="t3b06-gy-club-look-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://gayang-club-choice.program-school.online/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <a href="index.html" class="brand">👑 가양 클럽</a>
+ <nav>
+ <a href="index.html">홈</a>
+ <a href="about.html">소개</a>
+ 
+ </nav>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 38개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0479.html">가양 클럽 룩북 감각이 필요한 마포 코인노래방 방음 시설 비교 가이드</a>
+        <p class="post-item__summary">코인노래방을 이용할 때 가장 먼저 고려해야 할 요소는 소음 차단 능력입니다. 마치 가양 클럽 룩북을 살피듯 세밀하게 공간의 마감 상태를 확인해야 만족스러운 시간을 보낼 수 있습니다. 방문 전 반드시</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0078.html">가양 클럽 룩북 관점에서 본 홍대 노래방 추천정보 가격 비교 분석</a>
+        <p class="post-item__summary">공연 문화가 발달한 홍대 인근에서 가양 클럽 룩북 스타일의 감각적인 공간을 찾는 이들이 늘고 있습니다. 노래방을 선택할 때는 분위기만큼이나 가격의 적정성을 판단하는 기준이 매우 중요하게 작용합니다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0079.html">가양 클럽 룩북 스타일을 쫓다 실패하는 공덕 셔츠룸 추천정보 확인법</a>
+        <p class="post-item__summary">많은 이들이 가양 클럽 룩북 등을 참고하여 트렌디한 장소를 찾으려 하지만, 무작정 스타일만 쫓다 보면 낭패를 보기 쉽습니다. 특히 공덕 지역의 유흥 업소를 방문할 때는 시스템에 대한 정확한 이해 없</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0080.html">가양 클럽 룩북 참고하여 연남 유흥 추천정보 확인하는 위치 분석</a>
+        <p class="post-item__summary">가양 클럽 룩북을 살펴보며 스타일을 고민하는 분들이라면 이동 동선에도 많은 관심을 기울이게 됩니다. 연남 일대를 방문할 때 체크해야 할 항목들을 리스트로 정리했습니다. 접근성이 뛰어난 곳을 선택하는</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0081.html">가양 클럽 룩북 스타일로 알아보는 마곡 가라오케 추천정보 가이드</a>
+        <p class="post-item__summary">친구들과 격식 없는 자리를 계획하다 보면 의상부터 장소 선정까지 고민이 깊어지기 마련입니다. 특히 가양 클럽 룩북 속의 세련된 분위기를 연출하고 싶어 하는 분들이 최근 마곡 일대로 모여들고 있습니다</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0082.html">가양 클럽 룩북 관점으로 본 오해와 마곡 유흥 추천정보 가이드</a>
+        <p class="post-item__summary">많은 이들이 가양 클럽 룩북 같은 패션과 유흥 문화를 동일선상에 두고 오해하는 경우가 많습니다. 화려한 복장이 곧 유흥의 필수 조건이라고 생각하거나, 특정 장소의 문턱이 지나치게 높다고 지레짐작하는</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0083.html">가양 클럽 룩북 인원 구성에 따른 합정 노래방 추천정보 비교</a>
+        <p class="post-item__summary">쾌적한 공간, 최신 음향 장비, 친절한 서비스라는 세 가지 충족 조건이 잘 어우러진 곳을 찾기란 쉽지 않습니다. 가양 클럽 룩북을 감상하며 느꼈던 감각적인 인테리어의 만족감을 노래방에서도 그대로 이</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0084.html">가양 클럽 룩북 매력과 연남 클럽 추천정보 확인 시 기준</a>
+        <p class="post-item__summary">과연 당신은 자신이 원하는 분위기의 장소를 제대로 고르고 있는지 자문해 본 적이 있습니까? 가양 클럽 룩북을 통해 보았던 시각적인 즐거움과 현장에서 느끼는 생동감 사이에는 분명한 간극이 존재합니다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0085.html">가양 클럽 룩북 기반의 합정 셔츠룸 추천정보 선택 가이드</a>
+        <p class="post-item__summary">가양 클럽 룩북 자료를 살펴보는 것처럼 유흥 문화에서도 정보를 체계적으로 수집하는 태도가 중요합니다. 합정 지역의 유흥 시설을 방문할 때 가장 먼저 해야 할 일은 온라인에 산재한 광고성 게시글을 걸</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0086.html">가양 클럽 룩북 활용한 공덕 가라오케 추천정보 가격 비교</a>
+        <p class="post-item__summary">가양 클럽 룩북을 참고하여 나만의 스타일을 찾는 것처럼 공덕 지역에서 적합한 유흥 장소를 고를 때도 비교 분석이 필수적입니다. 공덕 가라오케를 선택하는 상황에서 가장 큰 고민은 역시 비용과 서비스의</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0087.html">가양 클럽 룩북 스타일의 상수 마사지 추천정보 예약 팁</a>
+        <p class="post-item__summary">가양 클럽 룩북을 보며 본인의 취향을 다듬듯 상수 마사지 시설을 이용할 때도 철저한 사전 준비가 필요합니다. 많은 사람들이 예약에 실패하는 이유는 업장의 시스템을 충분히 숙지하지 못한 채 방문하기 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0088.html">가양 클럽 룩북 참고한 망원 노래방 추천정보 접근성 분석</a>
+        <p class="post-item__summary">가양 클럽 룩북을 보며 가장 완벽한 코디를 고민하듯 망원 노래방을 찾을 때도 최적의 위치를 따져봐야 합니다. 단순히 인기가 많은 곳을 찾는 것보다 일행의 이동 동선과 주변 교통편을 고려하는 것이 훨</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-1.html">가양 클럽 룩북 가이드</a>
+        <p class="post-item__summary">가양 지역의 클럽과相关 유흥 시설에 대한 룩북을 살펴볼 때, 가장 먼저 고려해야 할 요소는 예산입니다. 각 업소는 위치와 시설 수준에 따라 다양한 가격대를 운영하고 있으며, 방문 전 미리 예상 비용</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-2.html">가양 클럽 룩북 가이드</a>
+        <p class="post-item__summary">지역 내에서 유행하는 클럽 스타일을 이해하는 것은 단순히 외형적인 요소를 넘어선다. 가양 지역에는 고유의 분위기를 형성하는 요소들이 존재하며, 이러한 맥락을 파악하는 것이 첫 번째 단계다. 새로운 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-1.html">가양 클럽 룩북 정보</a>
+        <p class="post-item__summary">가양 지역의 클럽과 관련된 룩북은 주로 패션 트렌드와 분위기 형성에 중점을 두어 준비됩니다. 방문자들은 지역 특색에 맞는 스타일링을 참고하며, 다양한 의상 제안과 코디 아이디어를 확인할 수 있습니다</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-2.html">가양 클럽 룩북</a>
+        <p class="post-item__summary">가양 지역의 클럽과 관련된 룩북 정보는 업종의 성격에 따라 연출 방식이 달라질 수 있습니다. 각 업종은 고유한 분위기와 손님 계층을 갖추고 있으며, 이에 맞는 스타일 접근이 필요합니다. 예를 들어 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">가양 클럽 룩북</a>
+        <p class="post-item__summary">가양 지역의 클럽은 독특한 분위기 속에서 다양한 문화적 요소를 자랑합니다. 이곳은 클럽 룩북을 통해 방문객들에게 매력적인 선택지를 제공하고자 합니다. 클럽에 대한 기본적인 정보부터 분위기까지, 모든</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-001-1xhm9eu.html">가양 클럽 룩북 솔직 후기</a>
+        <p class="post-item__summary">가양 클럽 룩북을 방문하기 전 가장 먼저 고려해야 할 점은 해당 공간이 추구하는 전체적인 분위기입니다. 이곳은 세련된 인테리어와 함께 조명과 음향 시설에 많은 투자를 한 곳으로 알려져 있습니다. 단</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
